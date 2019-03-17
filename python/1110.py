@@ -14,4 +14,4 @@ while True:
         start.insert(len(start) - 1, start.pop(0))
 
     print("Discarded cards: " + str(res).replace("[","").replace("]",""))
-print("Remaining card: " + str(start[0]))
+    print("Remaining card: " + str(start[0]))

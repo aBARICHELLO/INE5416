@@ -1,22 +1,30 @@
-#  -*- coding: utf -8  -*-
-case = 0
+#  -*- coding: utf-8  -*-
+import bisect
+def find_in_bissect(number, arr):
+    index = (bisect.bisect_left(arr, number))
+    if index < len(arr) and arr[index] == number:
+       return index + 1
+    else:
+       return -1
+sequence = 1
 while True:
-    index, q = [int(x) for x in input().split()]
-    if index == q == 0:
+    n, q = list(map(int,input().split()))
+    if n == 0 and q == 0:
         break
+    print("CASE# %d:" % sequence)
+    sequence += 1
+    l = []
+    for i in range(n+q):
+        if i < n:
+            l.append(int(input()))
+        if i == (n-1):
+            l.sort()
+        if i >= n:
+            i = int(input())
+            index = find_in_bissect(i, l)
 
-    case += 1
-    marble = [0]
+            if index == -1:
+                print(str(i) + " not found")
+            else:
+                print(str(i) + " found at " + str(index))
 
-    while index > 0:
-        index -= 1
-        marble.append(int(input()))
-    marble.sort()
-    print("CASE# " + str(case) + ":")
-    while q > 0:
-        q -= 1
-        index = int(input())
-        if index in marble:
-            print(str(index) + " found at " + str(marble.index(index)))
-        else:
-            print(str(index) + " not found")

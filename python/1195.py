@@ -1,7 +1,4 @@
 #  -*- coding: utf -8  -*-
-from sys import stdout as w
-
-
 class Node:
     def __init__(self, val):
         self.l = None
@@ -12,9 +9,6 @@ class Tree:
     def __init__(self):
         self.root = None
         self.buf = ""
-
-    def getRoot(self):
-        return self.root
 
     def add(self, val):
         if self.root == None:
@@ -34,39 +28,27 @@ class Tree:
             else:
                 node.r = Node(val)
 
-    def printTree(self):
-        if self.root != None:
-            self._printTree(self.root)
-
     def printBuf(self):
         print(self.buf)
         self.buf = ""
 
-    def printTreeLeft(self):
-        if self.root != None:
-            self._printTreeLeft(self.root)
-
-    def printTreeRight(self):
-        if self.root != None:
-            self._printTreeRight(self.root)
-
-    def _printTree(self, node):
+    def printTree(self, node):
         if node != None:
-            self._printTree(node.l)
-            self.buf += str(node.v) + " "
-            self._printTree(node.r)
+            self.printTree(node.l)
+            self.buf += " %s" % str(node.v)
+            self.printTree(node.r)
 
-    def _printTreeLeft(self, node):
+    def printTreeLeft(self, node):
         if node != None:
-            self.buf += str(node.v) + " "
-            self._printTreeLeft(node.l)
-            self._printTreeLeft(node.r)
+            self.buf += " %s" % str(node.v)
+            self.printTreeLeft(node.l)
+            self.printTreeLeft(node.r)
 
-    def _printTreeRight(self, node):
+    def printTreeRight(self, node):
         if node != None:
-            self._printTreeRight(node.l)
-            self._printTreeRight(node.r)
-            self.buf += str(node.v) + " "
+            self.printTreeRight(node.l)
+            self.printTreeRight(node.r)
+            self.buf += " %s" % str(node.v)
 
 
 cases = int(input())
@@ -76,17 +58,16 @@ for i in range(0, cases):
     tree = Tree()
     for el in data:
         tree.add(int(el))
-    print("Case " + str(i + 1) + ":")
-    w.write("Pre.: ")
-    tree.printTreeLeft()
+    print("Case %d:" % (i + 1))
+    print("Pre.:", end="")
+    tree.printTreeLeft(tree.root)
     tree.printBuf()
 
-    w.write("In..: ")
-    tree.printTree()
+    print("In..:", end="")
+    tree.printTree(tree.root)
     tree.printBuf()
 
-    w.write("Post: ")
-    tree.printTreeRight()
+    print("Post:", end="")
+    tree.printTreeRight(tree.root)
     tree.printBuf()
-
     print()
