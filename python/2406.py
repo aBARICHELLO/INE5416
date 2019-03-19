@@ -1,4 +1,5 @@
-#  -*- coding: utf -8  -*-
+# -*- coding: utf-8 -*-
+
 class Stack(object):
     def __init__(self, limit = 100):
         self.stack = []
@@ -37,6 +38,15 @@ class Stack(object):
     def size(self):
         return len(self.stack)
 
+def match(a, b):
+    if a == "(" and b == ")":
+        return True
+    elif a == "{" and b == "}":
+        return True
+    elif a == "[" and b == "]":
+        return True
+    else:
+        return False
 
 def isbalanced(line):
     stack = Stack()
@@ -44,22 +54,19 @@ def isbalanced(line):
     for char in line:
         if char == "(" or char == "[" or char == "{":
             stack.push(char)
-        elif stack.isEmpty():
-            valid = False
-        else:
+
+        if char == "}" or char == "]" or char == ")":
             element = stack.peek()
-            stack.pop()
+            if stack.isEmpty() or not match(element, char):
+                valid = False
+            else:
+                stack.pop()
 
-            if char == "}" and element != "{" or char == "]" and element != "[" or char == ")" and element != "(":
-                valid = True
 
-        if not valid:
-            break
-
-        if valid and stack.isEmpty():
-            print("S")
-        else:
-            print("N")
+    if valid and stack.isEmpty():
+        print("S")
+    else:
+        print("N")
 
 
 cases = int(input())
