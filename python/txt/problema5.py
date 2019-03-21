@@ -1,0 +1,11 @@
+import math
+x1, y1, z1 = str(input()).split()
+x2, y2, z2 = str(input()).split()
+x1 = int(x1)
+y1 = int(y1)
+z1 = int(z1)
+x2 = int(x2)
+y2 = int(y2)
+z2 = int(z2)
+d = lambda x1, y1, z1, x2, y2, z2: math.sqrt(math.pow(x2-x1, 2) + math.pow(y2-y1, 2) + math.pow(z2-z1, 2))
+print(d(x1, y1, z1, x2, y2, z2))
