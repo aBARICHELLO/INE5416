@@ -1,3 +1,4 @@
+-- Finish
 main = do
     xStr <- getLine
     yStr <- getLine
@@ -6,4 +7,4 @@ main = do
     let res = xor x y
     print res
 
-xor x y = if x < 0.0 then -x else x
+xor x y = (x && not x) || (y && not y)
