@@ -1,7 +1,7 @@
 main = do
     xStr <- getLine
     let n = (read xStr :: Float)
-    let res = fib a
+    let res = fib n
     print res
 
-fib a = if (a + b <= c) || (a + c <= b) then False else True
+fib n = if n == 0 then 0 else if n == 1 then 1 else fib (n - 1) + fib (n - 2)

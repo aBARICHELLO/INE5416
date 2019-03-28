@@ -1,10 +1,11 @@
 *.bin
+*.exe
 *.zip
 *.vs**
 input.txt
 example.txt
 
-## Haskell ###
+## Haskell
 dist
 dist-*
 cabal-dev
@@ -28,6 +29,7 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 
+## Python
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
