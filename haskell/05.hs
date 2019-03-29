@@ -8,4 +8,4 @@ main = do
     let res = grade x y z
     print res
 
-grade x y z = (x + y + z) / 3.0
+grade x y z = if ((x + y + z) / 3.0) > 6 then True else False

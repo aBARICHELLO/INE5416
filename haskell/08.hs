@@ -10,9 +10,13 @@ print(bhaskara(a,b,c))
 --}
 
 main = do
-    xStr <- getLine
-    let n = (read xStr :: Float)
-    let res = fib n
+    aStr <- getLine
+    bStr <- getLine
+    cStr <- getLine
+    let a = (read aStr :: Float)
+    let b = (read bStr :: Float)
+    let c = (read cStr :: Float)
+    let res = bhask a b c
     print res
 
 delta a b c = (b ^ 2) - 4 * a * c
