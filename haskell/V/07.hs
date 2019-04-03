@@ -8,7 +8,10 @@ getPrimeiroAluno :: [(Int, String, Float)] -> (Int, String, Float)
 getPrimeiroAluno (a:_) = a
 
 aprovados ::  [(Int, String, Float)] -> [String]
-aprovados l1 = map aprovado l1
+aprovados l1 = removeEmpty (map aprovado l1)
+
+removeEmpty :: [String] -> [String]
+removeEmpty  = filter (/="")
 
 -- ////////////////// A //////////////////
 aprovado :: (Int, String, Float) -> String
@@ -23,6 +26,8 @@ aprovado (_, n, f)
 gerarPares :: [t] -> [u] -> [(t,u)]
 gerarPares l1 l2 = [(a,b) | a <- l1, b <- l2]
 
+main :: IO()
 main = do
     print (getPrimeiroAluno alunos)
     print (aprovados alunos)
+    print (gerarPares alunos alunos)
