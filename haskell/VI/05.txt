@@ -1,0 +1,6 @@
+1. O que é newtype?
+2. Qual a diferença dele para Type e Data?
+
+    Newtype introduz o renomeamento de um tipo e requer que o
+usuário faça um construtor para o tipo que está sendo declarado.
+
