@@ -1,6 +1,16 @@
 1. O que é newtype?
 2. Qual a diferença dele para Type e Data?
 
+1.
     Newtype introduz o renomeamento de um tipo e requer que o
 usuário faça um construtor para o tipo que está sendo declarado.
+Newtype restringe o tipo para apenas um construtor com um campo.
 
+2.
+    Um tipo é um 'alias' para outros tipos, por exemplo o tipo String
+na standard library é definido como [Char], o compilador de Haskell substitui
+todas as ocorrências de String para [Char].
+    Já a keyword data define um tipo que pode possuir diversos construtores
+Tipos definidos com a keyword data suportam pattern matching, um exemplo real
+disto é a implementação do tipo Bool em Haskell que pode ser atribuído do valor
+de True ou False.

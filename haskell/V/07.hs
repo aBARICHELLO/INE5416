@@ -26,6 +26,8 @@ aprovado (_, n, f)
 gerarPares :: [t] -> [u] -> [(t,u)]
 gerarPares l1 l2 = [(a,b) | a <- l1, b <- l2]
 
+-- /// FINISH ///
+
 main :: IO()
 main = do
     print (getPrimeiroAluno alunos)
