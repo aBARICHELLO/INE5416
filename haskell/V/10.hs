@@ -1,12 +1,11 @@
--- /// FINISH ///
 main :: IO()
 main = do
-    let list = [-5, 3, 2, 1, 0]
-    let res = filtar double list
+    let list = [-5, -3, 2, -1, 0, 5]
+    let res = mapear greaterzero list
     print res
 
-filtar :: (t -> Bool) -> [t] -> [t]
-filtar fn (x:xs) = fn x ++ filtar (double xs)
+mapear :: (t -> Bool) -> [t] -> [t]
+mapear fn list = [ x | x <- list, fn x == True ]
 
-double :: Integer -> Integer
-double t = t * 2
+greaterzero :: Integer -> Bool
+greaterzero t = if t > 0 then True else False
