@@ -14,7 +14,7 @@ buscaElemento (No n esq dir) x
     | otherwise = (buscaElemento esq x) || (buscaElemento dir x)
 
 limiteSup :: Int
-limiteSup = 1000 --Define um limite superior para o maior número
+limiteSup = 1000 -- Define um limite superior para o maior número
 
 minimo :: Int -> Int -> Int
 minimo x y | (x < y) = x

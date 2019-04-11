@@ -30,7 +30,7 @@ class (Integral x) => MeuInt x where
              | otherwise = False
 
     -- Elevates x to the power of y
-    x *** y |
+
 
 instance MeuInt Integer
 instance MeuInt Int
