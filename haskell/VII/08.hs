@@ -15,6 +15,10 @@ main = do
     -- Deriving from Ord
     print (Green < Blue)
     -- Deriving from Enum
+    -- Enum methods:
     print (pred Green)
     print (succ Red)
-    print [Red .. Purple]
+
+    print (enumFrom Red) -- print Red to Purple
+    print [Red .. Purple] -- print Red to Purple
+    print (enumFromTo Green Blue) -- Print [Green, Blue]

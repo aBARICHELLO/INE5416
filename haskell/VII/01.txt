@@ -1,0 +1,26 @@
+A:
+O  que  s ̃ao  classes  primitivas  e  secund ́arias  no  Haskell?
+Cite  3  exemplos  de  classes  primitivas  e  3exemplos  de  classes  secund ́arias.
+Cite  o  papel  de  cada  uma  das  classes  citadas  e  alguns  m ́etodosexistentes nelas, bem como o que esses m ́etodos fazem.
+
+    Classes primitas são definidas independentemente de outras classes em Haskell, exemplos incluem as
+classes Eq, Read, Show e Enum que foram utilizadas no exercício 8 para demonstrar o uso de Enumerators elas
+data types. Métodos destas classes primitivas incluem 'show' para print ao console, 'read' para ler input
+do usuário, 'pred' e 'succ' para ordenação de elemento anterior e posterior em enumeradores.
+    Já as classes secundárias possuem este nomeamento pois são definidas a partir de outras classes, exemplos
+incluem as classes Integer, Int, Double e Float, todas estas que derivam da classe Num e possuem métodos de
+comparação como 'max' para o maior elemento, 'min' para menor, 'abs' para o valor absoluto, etc.
+
+---
+
+B:
+Fa ̧ca um breve resumo sobre as classes num ́ericas do Haskell.
+Como elas est ̃ao relacionadas entre si?Tente entender os m ́etodos dispon ́ıvel em cada classe
+
+    Em Haskell, os tipos numéricos são implementados a partir da classe base Num, alguns tipos numéricos disponíveis:
+- Int para inteiros de tamanho fixo para valores entre -2^39 e 2^39-1.
+- Integer para inteiros de precisão arbitrária.
+- Float para ponto flutuante de precisão simples (32 bits)
+- Double para ponto flutuante de 64 bits.
+    A classe base Num pode ser usada com os operadores já mencionados anteriormente e também operadores aritméticos comuns
+(*, -, +) e fromInteger
