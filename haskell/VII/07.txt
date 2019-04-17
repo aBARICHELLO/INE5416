@@ -1,0 +1,5 @@
+    O'Haskell foi lançada em 2011 mas foi logo substituída por Timber que possui paradigmas e especificações
+semelhantes. Seu nome com a letra O na frente deriva da palavra 'Object' visto que a linguagem busca extender
+Haskell em partes como orientação a objetos e programação concorrente. Também possui uma sintaxe entendida do
+Haskell para utilidades em updates em array, sintaxe extendida para o operador 'do', herança de objetos e
+subtipos para monads.
