@@ -1,8 +1,3 @@
--- Finish E
---
---
---
-
 type Nome = String
 type Idade = Int
 type Linguagem = String
