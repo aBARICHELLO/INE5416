@@ -14,6 +14,5 @@ first :: Fila t -> t
 first (Queue []) = error "Empty"
 first (Queue (x:s)) = x
 
--- f
 emptyQueue :: Fila t
 emptyQueue = Queue []
