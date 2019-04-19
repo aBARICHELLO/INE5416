@@ -1,2 +1,3 @@
-*.hs eol=lf
-*.py eol=lf
+*           text=auto
+*.hs        text eol=lf
+*.py        text eol=lf
