@@ -12,8 +12,8 @@ main = do
     print (area (Trapezio 3 3 3))
 
     -- 2
-    print (dist (Ponto2D 2.0 2.0) (Ponto2D 3.0 3.0))
-    print (colineares (Ponto2D 3.0 1.0) (Ponto2D 5.0 2.0) (Ponto2D 9.0 4.0))
+    print (dist (Ponto 2 2) (Ponto 3 3))
+    print (colineares (Ponto 3 1) (Ponto 5 2) (Ponto 9 4))
 
     -- 3
     print (somaElementos minhaArvore)
