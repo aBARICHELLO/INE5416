@@ -2,7 +2,7 @@
 -- TEST
 module Ponto (Ponto (Ponto), dist, colineares) where
 
-data Ponto = Ponto { x :: Float, y :: Float}
+data Ponto = Ponto Float Float
 
 dist :: Ponto -> Ponto -> Float
 dist (Ponto x1 y1) (Ponto x2 y2) = sqrt ((x2 - x1)^^2 + (y2 - y1)^^2)
