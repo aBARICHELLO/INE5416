@@ -1,7 +1,15 @@
 import Matrices
 
 main = do
-    -- TESTS
+    -- Matrices module tests
     print emptyMatrix
-    print testMatrix
-    print ((get testMatrix 0 0) == 0 && (get testMatrix 3 3) == 8)
+    print identityMatrix
+    print ((get identityMatrix 0 0) == 0 && (get identityMatrix 3 3) == 8)
+
+    -- // 8A //
+    print (elementSum emptyMatrix)
+    print (elementSum identityMatrix)
+
+    -- // 8B //
+    print (sumMatrix emptyMatrix emptyMatrix)
+    print (sumMatrix identityMatrix identityMatrix)
