@@ -6,47 +6,54 @@
       (5 "Bia" (6.7 4.1 5.5)))
 )
 
-(defun getName(student)
-    (car (cdr student))
+(defun getNome (aluno)
+    (car (cdr aluno))
 )
 
-(defun getNames(l)
-    (if (null l)
+(defun getGrades(aluno)
+    (car (cdr (cdr aluno)))
+)
+
+(defun getNames(lista)
+    (if (null lista)
         ()
-        (cons (getName (car l)) (getNames (cdr l)))
+        (cons (getNome (car lista)) (getNames (cdr lista)))
     )
 )
 
-(defun getGrade(student)
-    (last student)
+(defun getGrade(aluno)
+    (listAverage (getGrades aluno))
 )
 
-(defun getGrades(l)
-    (if (null l)
+(defun averages(lista)
+    (if (null lista)
         ()
-        (cons (getGrade (car l)) (getGrades (cdr l)))
-    )
+        (cons (list (getNome (car lista)) (getGrade (car lista))) (averages (cdr lista))))
 )
 
-;; A
+;; C
 
-;; B
-(defun classAverage(l)
-    (listAverage (studentsAverage l))
+(defun classAverage(lista)
+    (listAverage (studentsAverage lista))
 )
 
-(defun studentsAverage(l)
-    (if (null l)
+(defun studentsAverage(lista)
+    (if (null lista)
         ()
-        (cons (listAverage (car (getGrade (car l)))) (classAverage (cdr l)))
-    )
+        (cons (getGrade (car lista)) (studentsAverage (cdr lista))))
 )
 
-(defun main()
-    ;; (write-line (write-to-string (getNames (students))))
-    ;; (write-line (write-to-string (getGrade (car (students)))))
-    (write-line (write-to-string (classAverage (students))))
+;; D
+
+(defun approvedStudents(lista)
+    (if (null lista)
+        ()
+        (if (approved (car lista))
+            (cons (getNome (car lista)) (approvedStudents (cdr lista)))
+            (approvedStudents (cdr lista))))
 )
+
+(defun approved(aluno) (>= (getGrade aluno) 6))
 
 ;;
 ;; AUX fuctions
@@ -68,6 +75,15 @@
 
 (defun listAverage(l)
     (/ (sumList l) (lengthList l))
+)
+
+;;
+
+(defun main ()
+    (write-line (write-to-string (getNames (students))))
+    (write-line (write-to-string (averages (students))))
+    (write-line (write-to-string (classAverage (students))))
+    (write-line (write-to-string (approvedStudents (students))))
 )
 
 (main)
