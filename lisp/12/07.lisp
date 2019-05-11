@@ -1,5 +1,5 @@
 (defun getNList(l x)
-    (if (or (null l))
+    (if (null l)
         -1
         (if (= x 0)
             (car l)
