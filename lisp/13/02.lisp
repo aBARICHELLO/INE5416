@@ -127,8 +127,108 @@
 ;;
 ;; F
 ;;
+(defun replaceTree(arv x y)
+    (if (not (null arv))
+        (progn
+            (setf (no-n arv) (if (= (no-n arv) x) y (no-n arv)))
+            (replaceTree (no-esq arv) x y)
+            (replaceTree (no-dir arv) x y)
+        )
+    )
+)
+
+;;
+;; G
+;;
+(defun posOrder(arv)
+    (if (not (null arv))
+        (append
+            (posOrder (no-esq arv))
+            (posOrder (no-dir arv))
+            (list (no-n arv))
+        )
+    )
+)
+
+;;
+;; H
+;;
+(defun preOrder(arv)
+    (if (not (null arv))
+        (append
+            (list (no-n arv))
+            (preOrder (no-esq arv))
+            (preOrder (no-dir arv))
+        )
+    )
+)
+
+;;
+;; I
+;;
+(defun inOrder(arv)
+    (if (not (null arv))
+        (append
+            (inOrder (no-esq arv))
+            (list (no-n arv))
+            (inOrder (no-dir arv))
+        )
+    )
+)
+
+;;
+;; J
+;;
+(defun diffSumEvenSumOdd(arv)
+    (- (sumEvenElements arv) (sumOddElements arv))
+)
+
+(defun isEven(x)
+    (= 0 (mod x 2))
+)
+
+(defun isOdd(x)
+    (= 1 (mod x 2))
+)
+
+(defun sumEvenElements(arv)
+    (if (null arv)
+        0
+        (if (isEven(no-n arv))
+            (+
+                (no-n arv)
+                (sumEvenElements (no-esq arv))
+                (sumEvenElements (no-dir arv))
+            )
+            (+
+                (sumEvenElements (no-esq arv))
+                (sumEvenElements (no-dir arv))
+            )
+        )
+    )
+)
+
+(defun sumOddElements(arv)
+    (if (null arv)
+        0
+        (if (= 1 (mod (no-n arv) 2))
+            (+
+                (no-n arv)
+                (sumOddElements (no-esq arv))
+                (sumOddElements (no-dir arv))
+            )
+            (+
+                (sumOddElements (no-esq arv))
+                (sumOddElements (no-dir arv))
+            )
+        )
+    )
+)
+
+;;
 
 (defun main()
+    ;; Original functions
     ;; (write-line (write-to-string (soma minhaArvore)))
     ;; (write-line (write-to-string (buscaElemento minhaArvore 35)))
     ;; (write-line (write-to-string (buscaElemento minhaArvore 36)))
@@ -141,6 +241,20 @@
     (write-line (write-to-string (treeAverage minhaArvore))) ;; 306/7
     (write-line (write-to-string (size minhaArvore))) ;; 7
     (write-line (write-to-string (elements minhaArvore)))
+    (replaceTree minhaArvore 0 57) ;; Replace all 0 with 57
+    (write-line "")
+
+    (write-line "PRE:")
+    (write-line (write-to-string (preOrder minhaArvore)))
+    (write-line "IN:")
+    (write-line (write-to-string (inOrder minhaArvore)))
+    (write-line "POS:")
+    (write-line (write-to-string (posOrder minhaArvore)))
+    (write-line "")
+
+    (write-line (write-to-string (sumEvenElements minhaArvore)))
+    (write-line (write-to-string (sumOddElements minhaArvore)))
+    (write-line (write-to-string (diffSumEvenSumOdd minhaArvore)))
 )
 
 (main)
