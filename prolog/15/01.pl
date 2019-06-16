@@ -88,6 +88,7 @@ ascendente(X, Y) :-
 ascendente(X, Y) :-
     genitor(X, Z),
     ascendente(Z, Y). %recursão - passo recursivo
+%
 descendente(X, Y) :-
     genitor(Y, X).
 descendente(X, Y) :-
