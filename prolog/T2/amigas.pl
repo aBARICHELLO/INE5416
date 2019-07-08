@@ -1,4 +1,5 @@
-% https://rachacuca.com.br/logica/problemas/amigas-na-escola-ii/ (2)
+% https://rachacuca.com.br/logica/problemas/amigas-na-escola-ii/
+% (2)
 
 nome(aline).
 nome(beatriz).
